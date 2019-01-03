@@ -8,16 +8,15 @@ import { Injectable } from '@angular/core';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const heroes: Hero[] = [
-      { id: 11, name: 'Mr. Nice' },
-      { id: 12, name: 'Narco' },
-      { id: 13, name: 'Bombasto' },
-      { id: 14, name: 'Celeritas' },
-      { id: 15, name: 'Magneta' },
-      { id: 16, name: 'RubberMan' },
-      { id: 17, name: 'Dynama' },
-      { id: 18, name: 'Dr IQ' },
-      { id: 19, name: 'Magma' },
-      { id: 20, name: 'Tornado' }
+      { id: 1, name: 'Mr. Nghia1' , email: 'email1@gmail.com', address: '---', phoneNo: '---'},
+      { id: 2, name: 'Mr. User1' , email: 'email1@gmail.com', address: 'No 11. 19 Trung Kinh, Ha Noi, VN', phoneNo: '0123456789'},
+      { id: 3, name: 'Mr. Thao ' , email: 'email1@gmail.com', address: 'No 11. 19 Trung Kinh, Ha Noi, VN', phoneNo: '0123456789'},
+      { id: 4, name: 'Mr. User2' , email: 'email1@gmail.com', address: 'No 11. 19 Trung Kinh, Ha Noi, VN', phoneNo: '0123456789'},
+      { id: 5, name: 'Mr. User3' , email: 'email1@gmail.com', address: 'No 11. 19 Trung Kinh, Ha Noi, VN', phoneNo: '0123456789'},
+      { id: 6, name: 'Mr. User4' , email: 'email1@gmail.com', address: 'No 11. 19 Trung Kinh, Ha Noi, VN', phoneNo: '0123456789'},
+      { id: 7, name: 'Mr. User5' , email: 'email1@gmail.com', address: 'No 11. 19 Trung Kinh, Ha Noi, VN', phoneNo: '0123456789'},
+      { id: 8, name: 'Mr. User6' , email: 'email1@gmail.com', address: 'No 11. 19 Trung Kinh, Ha Noi, VN', phoneNo: '0123456789'},
+      { id: 9, name: 'Mr. User7' , email: 'email1@gmail.com', address: 'No 11. 19 Trung Kinh, Ha Noi, VN', phoneNo: '0123456789'}
     ];
     return {heroes};
   }

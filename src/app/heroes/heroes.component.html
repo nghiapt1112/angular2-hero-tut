@@ -1,24 +1,49 @@
 <h2>My Heroes</h2>
 
-<div>
-  <label>Hero name:
-    <input #heroName />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(heroName.value); heroName.value=''">
-    add
-  </button>
+
+<div class="row">
+  <div class="col-3">
+    <div class="row">
+      <label>Hero name:
+        <input #heroName />
+      </label>
+      <!-- (click) passes input value to add() and then clears the input -->
+      <button class="float-right" (click)="add(heroName.value); heroName.value=''">
+        add
+      </button>
+    </div>
+    <ul class="heroes">
+      <li *ngFor="let hero of heroes">
+        <a routerLink="/detail/{{hero.id}}">
+          <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
+        <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
+      </li>
+    </ul>
+  </div>
+  <div class="col-1"> </div>
+  <div class="col-8">
+    <table class="table table-bordered table-hover table-sm">
+      <caption>List of users</caption>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">name</th>
+        <th scope="col">email</th>
+        <th scope="col">address</th>
+        <th scope="col">Phone No</th>
+      </tr>
+      <tr *ngFor="let hero of heroes">
+        <th scope="row">{{hero.id}}</th>
+        <td>{{hero.name}}</td>
+        <td> <a routerLink="/detail/{{hero.id}}"> {{hero.email}}</a></td>
+        <td>{{hero.address}}</td>
+        <td>{{hero.phoneNo}}</td>
+      </tr>
+    </table>
+  </div>
 </div>
 
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </a>
-    <button class="delete" title="delete hero"
-            (click)="delete(hero)">x</button>
-  </li>
-</ul>
+
 
 
 <h2>{{master}} controls {{heroes.length}} heroes</h2>
