@@ -5,10 +5,10 @@ import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+  templateUrl: './hero-list.component.html',
+  styleUrls: ['./hero-list.component.css']
 })
-export class HeroesComponent implements OnInit {
+export class HeroListComponent implements OnInit {
   heroes: Hero[];
   master = 'Master';
 
