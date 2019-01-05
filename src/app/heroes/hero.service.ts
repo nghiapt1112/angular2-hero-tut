@@ -45,7 +45,9 @@ export class HeroService {
   }
 
   /** GET hero by id. Will 404 if id not found */
-  getHero(id: number): Observable<Hero> {
+  getHero(id: number | string): Observable<Hero> {
+    // (+) before `id` turns the string into a number
+    id = +id;
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url)
       .pipe(

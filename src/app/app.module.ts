@@ -10,11 +10,11 @@ import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './in-memory-data.service';
 import {VersionComponent} from './version/version.component';
 import {VersionChildComponent} from './version/child/version-child.component';
-import {CrisisListComponent} from './crisis-list/crisis-list.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HeroesModule} from './heroes/heroes.module';
 import {HeroSearchComponent} from './heroes/hero-search/hero-search.component';
-import {HeroChildComponent} from './heroes/hero-child/hero-child.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ComposeMessageComponent } from './compose-message/compose-message.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +23,13 @@ import {HeroChildComponent} from './heroes/hero-child/hero-child.component';
     DashboardComponent,
     VersionComponent,
     VersionChildComponent,
-    CrisisListComponent,
     PageNotFoundComponent,
-    HeroSearchComponent
-
+    HeroSearchComponent,
+    ComposeMessageComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false}),

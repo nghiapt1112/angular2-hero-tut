@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
+import {Hero} from '../hero';
+import {HeroService} from '../hero.service';
+import {Observable} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-heroes',
@@ -9,18 +12,28 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./hero-list.component.css']
 })
 export class HeroListComponent implements OnInit {
-  heroes: Hero[];
+  heroes$: Observable<Hero[]>;
   master = 'Master';
+  selectedId: number;
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService,
+              private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.getHeroes();
   }
 
   getHeroes(): void {
-    this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
+
+    this.heroes$ = this.route.paramMap.pipe(
+      switchMap(params => {
+        this.selectedId = +params.get('id');
+        return this.heroService.getHeroes();
+      })
+    );
+    // this.heroService.getHeroes()
+    //   .subscribe(heroes => this.heroes = heroes);
   }
 
   add(name: string): void {
@@ -28,14 +41,14 @@ export class HeroListComponent implements OnInit {
     if (!name) {
       return;
     }
-    this.heroService.addHero({name} as Hero)
-      .subscribe(hero => {
-        this.heroes.push(hero);
-      });
+    // this.heroService.addHero({name} as Hero)
+    //   .subscribe(hero => {
+    //     this.heroes.push(hero);
+    //   });
   }
 
   delete(hero: Hero): void {
-    this.heroes = this.heroes.filter(h => h !== hero);
-    this.heroService.deleteHero(hero).subscribe();
+    // this.heroes = this.heroes.filter(h => h !== hero);
+    // this.heroService.deleteHero(hero).subscribe();
   }
 }

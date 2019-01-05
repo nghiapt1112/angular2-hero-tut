@@ -1,23 +1,22 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
-import {HeroDetailComponent} from './heroes/hero-detail/hero-detail.component';
 import {VersionComponent} from './version/version.component';
-import {CrisisListComponent} from './crisis-list/crisis-list.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {ComposeMessageComponent} from './compose-message/compose-message.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'detail/:id', component: HeroDetailComponent},
   {path: 'version', component: VersionComponent},
-  {path: 'crisis-center', component: CrisisListComponent},
+  {path: 'compose', component: ComposeMessageComponent, outlet: 'popup'},
+  {path: 'crisis-center', loadChildren: './crisis-center/crisis-center.module#CrisisCenterModule', data: {preload: true}},
   {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {enableTracing: true})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

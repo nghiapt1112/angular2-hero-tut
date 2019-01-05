@@ -1,6 +1,8 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Hero } from './heroes/hero';
 import { Injectable } from '@angular/core';
+import {Crisis} from './crisis-center/crisis';
+
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +20,14 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 8, name: 'Mr. User6' , email: 'email1@gmail.com', address: 'No 11. 19 Trung Kinh, Ha Noi, VN', phoneNo: '0123456789'},
       { id: 9, name: 'Mr. User7' , email: 'email1@gmail.com', address: 'No 11. 19 Trung Kinh, Ha Noi, VN', phoneNo: '0123456789'}
     ];
-    return {heroes};
+    const crisis: Crisis[] = [
+      { id: 1, name: 'Dragon Burning Cities' },
+      { id: 2, name: 'Sky Rains Great White Sharks' },
+      { id: 3, name: 'Giant Asteroid Heading For Earth' },
+      { id: 4, name: 'Procrastinators Meeting Delayed Again' },
+    ]
+
+    return {heroes, crisis};
   }
 
   genId(heroes: Hero[]): number {
