@@ -15,6 +15,8 @@ import {HeroesModule} from './heroes/heroes.module';
 import {HeroSearchComponent} from './heroes/hero-search/hero-search.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
+import {AdminModule} from './admin/admin.module';
+import {AuthModule} from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { ComposeMessageComponent } from './compose-message/compose-message.compo
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false}),
     HeroesModule,
+    AdminModule,
+    AuthModule,
     AppRoutingModule
   ],
   providers: [
