@@ -8,13 +8,11 @@ import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './in-memory-data.service';
-import {VersionComponent} from './version/version.component';
-import {VersionChildComponent} from './version/child/version-child.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HeroesModule} from './heroes/heroes.module';
 import {HeroSearchComponent} from './heroes/hero-search/hero-search.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { ComposeMessageComponent } from './compose-message/compose-message.component';
+import {ComposeMessageComponent} from './compose-message/compose-message.component';
 import {AdminModule} from './admin/admin.module';
 import {AuthModule} from './auth/auth.module';
 
@@ -23,8 +21,6 @@ import {AuthModule} from './auth/auth.module';
     AppComponent,
     MessagesComponent,
     DashboardComponent,
-    VersionComponent,
-    VersionChildComponent,
     PageNotFoundComponent,
     HeroSearchComponent,
     ComposeMessageComponent
